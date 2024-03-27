@@ -24,8 +24,8 @@ SECRET_KEY = 'django-insecure-2e&29&54^e8@7-v*f$nt$zn-1x4qu-#@lwf3tbhcp4nf@*xnsh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bagdad-it-academy.uz']
-CSRF_TRUSED_ORIGINS = ['b96shckp.up.railway.app']
+ALLOWED_HOSTS = ['bagdaditacademy-production.up.railway.app','localhost', '127.0.0.1', 'bagdad-it-academy.uz']
+CSRF_TRUSTED_ORIGINS = ['https://b96shckp.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
@@ -121,13 +121,16 @@ DATE_INPUT_FORMATS = ['%d-%m-%Y']
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+
 STATIC_URL = 'static/'
+MEDIA_URL = 'images/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
-STATICFILES_DIRS = [BASE_DIR / 'static']
 
-MEDIA_URL = ''
-MEDIA_ROOT = 'static'
 
+MEDIA_ROOT = BASE_DIR / 'static/images'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
