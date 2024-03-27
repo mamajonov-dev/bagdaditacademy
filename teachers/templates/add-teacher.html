@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Add New Teacher</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="col-md-12 mb-3 mb-md-0">
+                                    <label class="text-black" for="fname">Full name</label>
+                                    <input name="full_name" type="text" id="fname" class="form-control"
+                                           placeholder="Full name">
+                                </div>
+
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <a href="{% url 'students' %}" class="btn bg-danger">Cansel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

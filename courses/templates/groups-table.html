@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Groups</h4>
+                        </div>
+                        <div class="header-action">
+                               <a href="{% url 'add_group' %}" class="svg-icon">
+                                <i class="">
+                                    <svg style="width:20px" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                              d="M12 4.5v15m7.5-7.5h-15"/>
+                                    </svg>
+
+                                </i>
+                                <strong style="font-size: 14px" class="card-title">Add new group</strong>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="datatable-1" class="table data-table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Course</th>
+                                    <th>Office room</th>
+                                    <th>Amount</th>
+                                    <th>Students</th>
+                                    <th>Position</th>
+                                    <th class="text-right">Salary</th>
+                                </tr>
+                                </thead>
+                             <tbody>
+                             {% for group in groups %}
+                                 <tr>
+                                    <td>{{group.name}}</td>
+                                    <td>{{group.course.name}}</td>
+                                    <td>{{group.room}}</td>
+                                    <td>{{group.amount_payment}}</td>
+                                    <td>{{group.len_students}}</td>
+                                    <td class="{% if group.complete %} text-success {% else %} text-warning {% endif %}">{% if group.complete %} Complete {% else %} Prosessing {% endif %}</td>
+                                    <td class="text-right">
+                                        <a href="{% url 'group_detail' pk=group.id %}">View</a>
+                                    </td>
+                                </tr>
+                             {% endfor %}
+                             </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

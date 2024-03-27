@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12 col-lg-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Add Course</h4>
+                        </div>
+
+                    </div>
+                    <div class="card-body">
+
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="name">Course name</label>
+                                {{form.name}}
+                            </div>
+
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                             <a href="{% url 'all_courses' %}" class="btn bg-danger">Cansel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Courses</h4>
+                        </div>
+
+                        <div class="header-action">
+                             <span class="table-add float-right mb-3 mr-2">
+
+                            <a href="{% url 'add_course' %}" class="btn btn-sm bg-primary">
+                                 <i class="">
+                                    <svg style="width:20px" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                              d="M12 4.5v15m7.5-7.5h-15"/>
+                                    </svg>
+
+                                </i>
+                                <i class="ri-add-fill"><span class="pl-1">Add New Course</span></i>
+                            </a>
+                        </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+
+                            <table id="datatable-1" class="table data-table table-striped table-bordered ">
+                                <thead>
+
+                                <tr>
+
+                                    <th>Name</th>
+
+
+                                    <th class="">Salary</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for course in courses %}
+                                <tr>
+                                    <td>{{course.name}}</td>
+                                    <td>
+                                    <span class="table-remove">
+                                        <a href="{% url 'delete_course' pk=course.id %}" type="button"
+                                           class="btn bg-danger-light btn-rounded btn-sm my-0">Remove</a></span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

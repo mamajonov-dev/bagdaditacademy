@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Payments</h4>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="datatable-1" class="table data-table table-striped table-bordered ">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Month</th>
+                                    <th>Group</th>
+                                    <th>Amount</th>
+
+
+                                    <th>View</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for payment in payments %}
+                                <tr class="table-danger">
+                                    <td>{{payment.student.full_name}}</td>
+                                    <td>{{payment.month}}</td>
+                                    <td>{{payment.to_group}}</td>
+                                    <td>{{payment.amount}} so'm</td>
+
+
+
+                                    <td class="text-right">
+                                        <a href="{% url 'pay_for_student' pk=payment.id %}" class="btn btn-success">Pay</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

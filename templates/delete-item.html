@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <form method="post">
+                    {% csrf_token %}
+                    <h4 class="font-weight-bold">Are sure delete this item "{{item}}"</h4>
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="{% if orqaga == 'groups' %} {% url 'all_groups' %}  {% else %} {% url 'all_courses' %} {% endif %}"  class="btn bg-danger">Cansel</a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,13 @@
+asgiref==3.7.2
+chardet==5.2.0
+Django==4.2
+pillow==10.2.0
+psycopg2-binary==2.9.9
+PyPDF2==2.12.1
+pypng==0.20220715.0
+python-dateutil==2.9.0.post0
+qrcode==7.4.2
+reportlab==4.1.0
+six==1.16.0
+sqlparse==0.4.4
+typing_extensions==4.10.0

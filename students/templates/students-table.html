@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="content-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between">
+                        <div class="header-title">
+                            <h4 class="card-title">Student</h4>
+                        </div>
+
+                        <div class="header-action">
+                             <span class="table-add float-right mb-3 mr-2">
+
+                            <a href="{% url 'add_student' %}" class="btn btn-sm bg-primary">
+                                 <i class="">
+                                    <svg style="width:20px" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                         viewBox="0 0 24 24"
+                                         stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                              d="M12 4.5v15m7.5-7.5h-15"/>
+                                    </svg>
+
+                                </i>
+                                <i class="ri-add-fill"><span class="pl-1">Add New Student</span></i>
+                            </a>
+                        </span>
+
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+
+                        <div class="table-responsive">
+
+                            <table id="datatable-1" class="table data-table table-striped table-bordered ">
+                                <thead>
+
+                                <tr>
+                                    <th>Name</th>
+
+                                    <th>Phone</th>
+                                    <th>Birthday</th>
+                                    <th>Course</th>
+                                    <th>Group</th>
+                                    <th class="">Register data</th>
+                                    <th class="">Payment</th>
+                                    <th>Finish</th>
+                                    <th>View</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for student in students %}
+                                <tr>
+                                    <td>{{student.full_name}}</td>
+
+                                    <td>{{student.phone}}</td>
+                                    <td>{{student.birthday}}</td>
+                                    <td>{{student.course}}</td>
+                                    <td>{{student.group}}</td>
+                                    <td>{{student.created}}</td>
+                                    <td class="{% if student.sertificate %} text-success {% else %} text-danger {% endif %}">
+                                        {% if student.sertificate %}
+                                        <p><a href="{% url 'getimage' pk=student.id %}" class="btn btn-success">Create certificate </a></p>
+                                        {% elif student.len_not_amount == None %}
+                                        Not register to group
+                                        {% else %}
+                                        <strong>{{student.len_not_amount}}</strong> month not payed
+                                        {% endif %}
+                                    </td>
+
+                                    <td class="{% if student.finish %} text-success {% else %} text-warning {% endif %}">
+                                        {% if student.group.start %} Prosessing {% elif student.group.finish %} Complate {% else %} Not yet register to group {% endif %}
+                                    </td>
+                                    <td class="text-right">
+                                        <a href="{% url 'student_profile' pk=student.id %}">View</a>
+                                    </td>
+
+                                </tr>
+                                {% endfor %}
+                                </tbody>
+                                <tfoot>
+
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
