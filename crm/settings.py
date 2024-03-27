@@ -24,8 +24,8 @@ SECRET_KEY = 'django-insecure-2e&29&54^e8@7-v*f$nt$zn-1x4qu-#@lwf3tbhcp4nf@*xnsh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['bagdad-it-academy.uz']
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'bagdad-it-academy.uz']
+CSRF_TRUSED_ORIGINS = ['b96shckp.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
@@ -81,13 +81,12 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'railway',
-        'USER':'postgres',
-        'PASSWORD':'TNEfVtpcLriMEJvZJTOXrlzEwlVzwPvy',
-        'HOST':'monorail.proxy.rlwy.net',
-        'PORT':'52527',
+        'USER': 'postgres',
+        'PASSWORD': 'TNEfVtpcLriMEJvZJTOXrlzEwlVzwPvy',
+        'HOST': 'monorail.proxy.rlwy.net',
+        'PORT': '52527',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
