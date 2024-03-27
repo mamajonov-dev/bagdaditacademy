@@ -1,1 +1,1 @@
-web: python manage.py
+web: gunicorn crm.wsgi --log-file -
