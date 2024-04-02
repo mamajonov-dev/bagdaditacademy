@@ -12,7 +12,7 @@ class Student(models.Model):
     group = models.ForeignKey(Group, on_delete=models.SET_NULL, blank=True, null=True)
 
     finish = models.BooleanField(default=False, blank=True, null=True)
-    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+    # id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
     created = models.DateField(auto_now_add=True)
     updated = models.DateField(auto_now=True)
 
@@ -44,7 +44,7 @@ class Payment(models.Model):
     sale = models.IntegerField(default=0, blank=True, null=True)
     payment_check = models.ImageField(upload_to='payment_cheks/', blank=True, null=True, default=None)
     complate = models.BooleanField(default=False, blank=True, null=True)
-    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+    # id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
@@ -60,7 +60,7 @@ class Payment(models.Model):
 class Studentcertificate(models.Model):
     image = models.ImageField(upload_to='certificates/', blank=True, null=True)
     student = models.ForeignKey(Student, on_delete=models.SET_NULL, blank=True, null=True)
-    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+    # id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
     created = models.DateTimeField(auto_now_add=True)
     course = models.ForeignKey(Course, on_delete=models.SET_NULL, blank=True, null=True)
     def __str__(self):

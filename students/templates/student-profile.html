@@ -136,11 +136,11 @@
                                     </svg>
                                 </div>
                                 <div class="ml-3">
-                                    <h5><a href="{% url 'group_detail' pk=student.group.id %}">Group name: {{student.group}}</a>
+                                    <h5><a href="{% if student.group %} {% url 'group_detail' pk=student.group.id %}{% endif %}">Group name: {{student.group}}</a>
                                     </h5>
                                     <br>
-                                    <p class="mb-0">Started: {{student.group.start}} <br> | <br> Finished:
-                                        {{student.group.finish}}</p>
+                                    <p class="mb-0">Started: {% if student.group %} {{student.group.start}} <br> | <br> Finished:
+                                        {{student.group.finish}} {% endif %}</p>
                                 </div>
                             </li>
 
@@ -151,7 +151,7 @@
                             <span class="float-right">Group </span>
                             <div class="iq-progress-bar pro-skill">
                                 {% if student.group.start and student.group.finish %}
-                                <span data-percent="{{student.group.group_prosses}}"></span>
+                                <span data-percent=""></span>
                                 {% endif %}
                             </div>
                         </div>

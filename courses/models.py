@@ -10,13 +10,14 @@ from dateutil.relativedelta import relativedelta
 class Room(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True, unique=True)
     created = models.DateTimeField(auto_now_add=True)
-    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+    # id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
 
     def __str__(self):
         return self.name
 class Course(models.Model):
     name = models.CharField(max_length=200, blank=True, null=True, unique=True)
-    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+    # id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+    # id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
@@ -47,7 +48,7 @@ class Group(models.Model):
     course = models.ForeignKey(Course, on_delete=models.PROTECT, blank=True, null=True)
     room_time = models.CharField(max_length=200, choices=CHOICES, blank=True, null=True)
     created = models.DateTimeField(auto_now_add=True)
-    id = models.UUIDField(default=uuid4, editable=False, primary_key=True, unique=True)
+    # id = models.UUIDField(default=uuid4, editable=False, primary_key=True, unique=True)
 
     def __str__(self):
         return self.name
@@ -59,15 +60,15 @@ class Group(models.Model):
         amount = self.len_students() * self.amount * self.continuity
         return amount
 
-    def group_prosses(self):
-        # now = datetime.date.today()
-        # start = self.start
-        # finish = self.finish
-        # # pount =  float(str((100 / float(str((finish - start)).split()[0]) )).split()[0]) * float(str((now - start)).split()[0])
-        # y, m, d = map(int, str(self.start).split('-'))
-        # start = datetime.date(y, m, d)
-        # finish = relativedelta(months=self.continuity) - datetime.date(y, m, d)
-        now = datetime.date.today().month
-        hozirgacha = self.start - relativedelta(months=now)
-
-        return hozirgacha
+    # def group_prosses(self):
+    #     # now = datetime.date.today()
+    #     # start = self.start
+    #     # finish = self.finish
+    #     # # pount =  float(str((100 / float(str((finish - start)).split()[0]) )).split()[0]) * float(str((now - start)).split()[0])
+    #     # y, m, d = map(int, str(self.start).split('-'))
+    #     # start = datetime.date(y, m, d)
+    #     # finish = relativedelta(months=self.continuity) - datetime.date(y, m, d)
+    #     now = datetime.date.today().month
+    #     hozirgacha = self.start - relativedelta(months=now)
+    #
+    #     return hozirgacha
