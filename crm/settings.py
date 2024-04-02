@@ -24,8 +24,8 @@ SECRET_KEY = 'django-insecure-2e&29&54^e8@7-v*f$nt$zn-1x4qu-#@lwf3tbhcp4nf@*xnsh
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['https://bagdaditacademy-production.up.railway.app/','localhost', '127.0.0.1', 'bagdad-it-academy.uz']
-CSRF_TRUSTED_ORIGINS = ['https://b96shckp.up.railway.app','https://bagdaditacademy-production.up.railway.app/']
+ALLOWED_HOSTS = ['https://bagdaditacademy-production.up.railway.app/','localhost', '127.0.0.1', 'bagdad-it-academy.uz', 'bagdaditacademy-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = ['https://b96shckp.up.railway.app','https://bagdaditacademy-production.up.railway.app/','bagdaditacademy-production.up.railway.app']
 # Application definition
 
 INSTALLED_APPS = [
